@@ -37,12 +37,14 @@ const Layout: FC = (props) => {
             </button>
             <LogoSolid className="w-min" />
           </div>
+
           <div className="flex-none">
             <button className="btn btn-secondary btn-sm" onClick={handleLogout}>
               Logout
             </button>
           </div>
         </div>
+
         {/* Body */}
         <div className="z-0 flex h-full w-full flex-1">
           {/* Sidebar */}
