@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.row-btn-action {
+  @apply text-center opacity-100 md:opacity-0;
+}
+
+tr.container-btn-action:hover .row-btn-action {
+  @apply opacity-100;
+}
