@@ -2,6 +2,7 @@ import LogoSolid from '@components/assets/LogoSolid'
 import YearCopyright from '@components/misc/YearCopyright'
 import useStore from '@utils/misc/useStore'
 import { adminMenu } from '@utils/model/data_menu'
+import useAuth from '@utils/model/useAuth'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -15,6 +16,7 @@ const Layout: FC = (props) => {
   const { children } = props
   const { userInfo, sidebarOpen, setSidebarOpen } = useStore()
   const { asPath } = useRouter()
+  const { handleLogout } = useAuth()
 
   return (
     <div className="h-screen w-screen">
@@ -24,7 +26,7 @@ const Layout: FC = (props) => {
         <div className="z-10 flex w-full flex-none items-center justify-between bg-base-100 py-2 px-4 shadow-md">
           <div className="ml-auto flex h-10 flex-1 items-center space-x-2">
             <button
-              className="btn btn-secondary btn-square btn-sm"
+              className="btn btn-square btn-secondary btn-sm"
               onClick={() => setSidebarOpen(!sidebarOpen)}
             >
               {sidebarOpen ? (
@@ -36,7 +38,9 @@ const Layout: FC = (props) => {
             <LogoSolid className="w-min" />
           </div>
           <div className="flex-none">
-            <button className="btn btn-secondary btn-sm">Logout</button>
+            <button className="btn btn-secondary btn-sm" onClick={handleLogout}>
+              Logout
+            </button>
           </div>
         </div>
         {/* Body */}
